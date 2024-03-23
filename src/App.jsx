@@ -1,5 +1,6 @@
 import React from "react";
 import Post from "./components/Post";
+import Comment from "./components/Comment";
 
 function App() {
   return (
