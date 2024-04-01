@@ -4,7 +4,7 @@ import Comment from "./components/Comment";
 import CreatePostForm from "./components/CreatePostForm";
 import Feed from "./components/Feed";
 
-function App(props) {
+function App() {
   const [posts, setPosts] = useState([]);
 
   let handleNewPost = (data) => {

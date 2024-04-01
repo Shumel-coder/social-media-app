@@ -1,12 +1,11 @@
 import React from "react";
+import Post from "./Post";
 
 function Feed(props) {
   let posts = props.posts.map((data) => {
     return (
       <div>
-        <h3>{data.title}</h3>
-        <p>{data.content}</p>
-        <br />
+        <Post author={data.author} content={data.content} />
       </div>
     );
   });

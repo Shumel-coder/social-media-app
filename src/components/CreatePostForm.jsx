@@ -1,23 +1,23 @@
 import React, { useState } from "react";
 
 function CreatePost(props) {
-  const [title, setTitle] = useState("");
+  const [author, setAuthor] = useState("");
   const [content, setContent] = useState("");
 
   let handleSubmit = (event) => {
     event.preventDefault();
-    console.log(title, content);
+    console.log(author, content);
 
-    if (title === "" || content === "") {
-      alert("Title and content required");
+    if (author === "" || content === "") {
+      alert("Author and content required");
     } else {
-      console.log(title, content);
-      props.onNewSubmit({ title, content });
+      console.log(author, content);
+      props.onNewSubmit({ author, content });
     }
   };
 
-  let handleTitleChange = (event) => {
-    setTitle(event.target.value);
+  let handleAuthorChange = (event) => {
+    setAuthor(event.target.value);
   };
 
   let handleContentChange = (event) => {
@@ -25,13 +25,13 @@ function CreatePost(props) {
   };
   return (
     <form onSubmit={handleSubmit}>
-      <label htmlFor="postTitle">Title</label>
-      <input type="text" className="postTitle" onChange={handleTitleChange} />
+      <label htmlFor="postAuthor">Author: </label>
+      <input type="text" className="author" onChange={handleAuthorChange} />
       <br />
-      <label htmlFor="postContent">Content</label>
+      <label htmlFor="content">Content: </label>
       <input
         type="textarea"
-        className="postContent"
+        className="content"
         onChange={handleContentChange}
       />
       <br />
@@ -39,7 +39,7 @@ function CreatePost(props) {
       <input
         type="submit"
         value="Post"
-        disabled={title === "" || content === ""}
+        disabled={author === "" || content === ""}
       />
     </form>
   );
