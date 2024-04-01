@@ -1,12 +1,19 @@
 import React, { useState } from "react";
 
-function CreatePost() {
+function CreatePost(props) {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
   let handleSubmit = (event) => {
     event.preventDefault();
     console.log(title, content);
+
+    if (title === "" || content === "") {
+      alert("Title and content required");
+    } else {
+      console.log(title, content);
+      props.onNewSubmit({ title, content });
+    }
   };
 
   let handleTitleChange = (event) => {
