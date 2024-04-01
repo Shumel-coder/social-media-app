@@ -13,9 +13,11 @@ function App() {
 
   return (
     <div>
-      <h1>Fakebook!</h1>
+      <div className="top">
+        <h1 className="banner">Fakebook!</h1>
 
-      <CreatePostForm onNewSubmit={handleNewPost} />
+        <CreatePostForm onNewSubmit={handleNewPost} />
+      </div>
 
       <Feed posts={posts} />
     </div>

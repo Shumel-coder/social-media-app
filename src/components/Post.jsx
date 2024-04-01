@@ -1,24 +1,31 @@
 import React, { useState } from "react";
 import Comment from "./Comment";
 import CreatePost from "./CreatePostForm";
+import CreateComment from "./CommentForm";
+import CommentFeed from "./CommentFeed";
 
 function Post(props) {
   const [likes, setLikes] = useState(0);
+  const [comments, setComments] = useState([]);
+
+  let handleNewComment = (data) => {
+    setComments([...comments, data]);
+  };
+
   function handleLike() {
     setLikes(likes + 1);
   }
 
   return (
-    <div>
+    <div className="postCard">
       <h3> {props.author} </h3>
-      <p> {props.content} </p>
-      <p> Likes: {likes} </p>
+      <h4> {props.content} </h4>
+      <h5> Likes: {likes} </h5>
       <button onClick={handleLike}>Like</button>
       <p>Comments:</p>
-      <Comment content="This is a test comment!" />
-      <Comment content="This is another test comment!" />
-      <Comment content="This is yet another test comment!" />
+      <CommentFeed comments={comments} />
       <br />
+      <CreateComment onNewSubmit={handleNewComment} />
       <br />
     </div>
   );
