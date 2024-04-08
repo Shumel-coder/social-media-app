@@ -42,6 +42,7 @@ function CreateComment(props) {
       <br />
       <br />
       <input
+        id="commentbutton"
         type="submit"
         value="Comment"
         disabled={commentor === "" || comment === ""}

@@ -3,6 +3,11 @@ import Comment from "./Comment";
 import CreatePost from "./CreatePostForm";
 import CreateComment from "./CommentForm";
 import CommentFeed from "./CommentFeed";
+import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
+import ThumbUpIcon from "@mui/icons-material/ThumbUp";
+import { SvgIcon } from "@mui/material";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import { blue, red } from "@mui/material/colors";
 
 function Post(props) {
   const [likes, setLikes] = useState(0);
@@ -18,10 +23,15 @@ function Post(props) {
 
   return (
     <div className="postCard">
-      <h3> {props.author} </h3>
+      <h2> {props.author} </h2>
       <h4> {props.content} </h4>
-      <h5> Likes: {likes} </h5>
-      <button onClick={handleLike}>Like</button>
+      <h5>
+        <FavoriteIcon sx={{ color: red[500] }} />
+        {likes}{" "}
+      </h5>
+      <button onClick={handleLike} on>
+        <ThumbUpOffAltIcon sx={{ color: blue[500] }} />
+      </button>
       <p>Comments:</p>
       <CommentFeed comments={comments} />
       <br />

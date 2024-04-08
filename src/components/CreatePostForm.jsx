@@ -37,6 +37,7 @@ function CreatePost(props) {
       <br />
       <br />
       <input
+        id="postbutton"
         type="submit"
         value="Post"
         disabled={author === "" || content === ""}
